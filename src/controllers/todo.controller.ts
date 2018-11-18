@@ -36,6 +36,20 @@ export class TodoController {
     return await this.todoRepository.create(todo);
   }
 
+  @get('/todos/count', {
+    responses: {
+      '200': {
+        description: 'Todo model count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async count(
+    @param.query.object('where', getWhereSchemaFor(Todo)) where?: Where,
+  ): Promise<Count> {
+    return await this.todoRepository.count(where);
+  }
+
   @get('/todos', {
     responses: {
       '200': {
@@ -104,19 +118,5 @@ export class TodoController {
   })
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.todoRepository.deleteById(id);
-  }
-
-  @get('/todos/count', {
-    responses: {
-      '200': {
-        description: 'Todo model count',
-        content: {'application/json': {schema: CountSchema}},
-      },
-    },
-  })
-  async count(
-    @param.query.object('where', getWhereSchemaFor(Todo)) where?: Where,
-  ): Promise<Count> {
-    return await this.todoRepository.count(where);
   }
 }

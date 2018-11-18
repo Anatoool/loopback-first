@@ -1,7 +1,7 @@
 {
-  "name": "first-loopback",
+  "name": "loopback-todo",
   "version": "1.0.0",
-  "description": "first loopback project",
+  "description": "desc",
   "keywords": [
     "loopback-application",
     "loopback"

@@ -4,11 +4,11 @@
 // License text available at https://opensource.org/licenses/MIT
 
 import {Client} from '@loopback/testlab';
-import {RootApp} from '../..';
+import {LoopbackTodoApplication} from '../..';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
-  let app: RootApp;
+  let app: LoopbackTodoApplication;
   let client: Client;
 
   before('setupApplication', async () => {
